@@ -12,8 +12,29 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = require(".");
+exports.EdgeBoundaryPath = exports.PolylineBoundaryPath = exports.HatchBoundaryPath = exports.HatchPattern = exports.Hatch = exports.HatchStyle = void 0;
+var LineReader = __importStar(require("line-reader"));
+var _1 = require("./entity");
 var HatchStyle;
 (function (HatchStyle) {
     HatchStyle[HatchStyle["NORMAL"] = 0] = "NORMAL";
@@ -62,39 +83,48 @@ var HatchPattern = /** @class */ (function () {
         this.name = name;
         this.lines = lines;
     }
-    HatchPattern.parse = function (lines) {
-        var result = [];
-        var pattern = null;
-        for (var _i = 0, lines_1 = lines; _i < lines_1.length; _i++) {
-            var line = lines_1[_i];
-            line = line.trim();
-            if (line.length) {
-                // New pattern
-                if (line[0] === '*') {
-                    var nameMatch = line.match(/\*(\w+),?/);
-                    if (nameMatch) {
-                        pattern = new HatchPattern(nameMatch[1], []);
-                        result.push(pattern);
-                    }
+    HatchPattern.readFileAsync = function (path) {
+        return new Promise(function (resolve, reject) {
+            LineReader.open(path, function (err, reader) {
+                if (err)
+                    reject(err);
+                var result = [];
+                var pattern = null;
+                while (reader.hasNextLine()) {
+                    if (err)
+                        reject(err);
+                    reader.nextLine(function (err, line) {
+                        line = line.trim();
+                        if (line.length) {
+                            // New pattern
+                            if (line[0] === '*') {
+                                var nameMatch = line.match(/\*(\w+),?/);
+                                if (nameMatch) {
+                                    pattern = new HatchPattern(nameMatch[1], []);
+                                    result.push(pattern);
+                                }
+                            }
+                            // Line data
+                            else if (pattern) {
+                                var lineData = line.split(',').map(function (x) { return parseFloat(x.trim()); });
+                                if (lineData.length >= 5) {
+                                    var patternLine = {
+                                        angle: lineData[0],
+                                        x: lineData[1],
+                                        y: lineData[2],
+                                        offsetX: lineData[3],
+                                        offsetY: lineData[4],
+                                        dashes: lineData.slice(5)
+                                    };
+                                    pattern.lines.push(patternLine);
+                                }
+                            }
+                        }
+                    });
                 }
-                // Line data
-                else if (pattern) {
-                    var lineData = line.split(',').map(function (x) { return parseFloat(x.trim()); });
-                    if (lineData.length >= 5) {
-                        var patternLine = {
-                            angle: lineData[0],
-                            x: lineData[1],
-                            y: lineData[2],
-                            offsetX: lineData[3],
-                            offsetY: lineData[4],
-                            dashes: lineData.slice(5)
-                        };
-                        pattern.lines.push(patternLine);
-                    }
-                }
-            }
-        }
-        return result;
+                resolve(result);
+            });
+        });
     };
     HatchPattern.prototype.writeDxf = function (writer) {
         writer.writeGroup(78, this.lines.length);

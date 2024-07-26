@@ -13,7 +13,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = require(".");
+exports.BlockEnd = exports.Block = void 0;
+var _1 = require("./entity");
 var Block = /** @class */ (function (_super) {
     __extends(Block, _super);
     function Block(name, handle, ownerHandle) {

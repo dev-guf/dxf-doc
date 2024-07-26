@@ -13,7 +13,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = require(".");
+exports.Line = void 0;
+var _1 = require("./entity");
 var Line = /** @class */ (function (_super) {
     __extends(Line, _super);
     function Line(doc, x1, y1, x2, y2, ownerHandle) {

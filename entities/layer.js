@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Layer = void 0;
 var table_1 = require("./table");
 var ltype_1 = require("./ltype");
 var Layer = /** @class */ (function (_super) {

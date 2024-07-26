@@ -13,7 +13,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = require(".");
+exports.Ellipse = void 0;
+var _1 = require("./entity");
 var Ellipse = /** @class */ (function (_super) {
     __extends(Ellipse, _super);
     function Ellipse(doc, cx, cy, majorAxisDx, majorAxisDy, axisRatio, startAngle, endAngle, ownerHandle) {

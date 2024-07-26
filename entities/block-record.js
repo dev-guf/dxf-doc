@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.BlockRecord = void 0;
 var table_1 = require("./table");
 var BlockRecord = /** @class */ (function (_super) {
     __extends(BlockRecord, _super);

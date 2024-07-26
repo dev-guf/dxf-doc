@@ -17,12 +17,13 @@ export declare enum TextVerticalAlign {
 export declare class Text extends Entity {
     text: string;
     height: number;
+    widthFactor: number;
     alignPoint: [number, number];
     align?: TextAlign | undefined;
     secondAlignPoint?: [number, number] | undefined;
     valign?: TextVerticalAlign | undefined;
     rotation?: number | undefined;
     style?: string;
-    constructor(doc: DxfDocument, text: string, height: number, alignPoint: [number, number], align?: TextAlign | undefined, secondAlignPoint?: [number, number] | undefined, valign?: TextVerticalAlign | undefined, rotation?: number | undefined, ownerHandle?: string);
+    constructor(doc: DxfDocument, text: string, height: number, widthFactor: number, alignPoint: [number, number], align?: TextAlign | undefined, secondAlignPoint?: [number, number] | undefined, valign?: TextVerticalAlign | undefined, rotation?: number | undefined, ownerHandle?: string);
     protected writeEntity(writer: DxfWriter): void;
 }

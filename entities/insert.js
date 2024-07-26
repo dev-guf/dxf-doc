@@ -13,7 +13,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = require(".");
+exports.Insert = void 0;
+var _1 = require("./entity");
 var Insert = /** @class */ (function (_super) {
     __extends(Insert, _super);
     function Insert(doc, blockName, x, y, rotation, scaleX, scaleY, scaleZ, ownerHandle) {

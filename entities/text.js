@@ -13,7 +13,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = require(".");
+exports.Text = exports.TextVerticalAlign = exports.TextAlign = void 0;
+var _1 = require("./entity");
 var TextAlign;
 (function (TextAlign) {
     TextAlign[TextAlign["LEFT"] = 0] = "LEFT";
@@ -32,10 +33,11 @@ var TextVerticalAlign;
 })(TextVerticalAlign = exports.TextVerticalAlign || (exports.TextVerticalAlign = {}));
 var Text = /** @class */ (function (_super) {
     __extends(Text, _super);
-    function Text(doc, text, height, alignPoint, align, secondAlignPoint, valign, rotation, ownerHandle) {
+    function Text(doc, text, height, widthFactor, alignPoint, align, secondAlignPoint, valign, rotation, ownerHandle) {
         var _this = _super.call(this, 'TEXT', doc.nextHandle(), ownerHandle) || this;
         _this.text = text;
         _this.height = height;
+        _this.widthFactor = widthFactor;
         _this.alignPoint = alignPoint;
         _this.align = align;
         _this.secondAlignPoint = secondAlignPoint;
@@ -51,6 +53,7 @@ var Text = /** @class */ (function (_super) {
         writer.writeGroup(10, this.alignPoint[0]);
         writer.writeGroup(20, this.alignPoint[1]);
         writer.writeGroup(40, this.height);
+        writer.writeGroup(41, this.widthFactor);
         writer.writeGroup(1, this.text);
         if (this.rotation) {
             writer.writeGroup(50, this.rotation);

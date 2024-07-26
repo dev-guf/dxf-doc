@@ -2,8 +2,8 @@
   "name": "dxf-doc",
   "version": "0.1.6",
   "description": "JavaScript library for writing DXF files",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "tsc": "tsc",
     "dev": "nodemon",
@@ -25,10 +25,11 @@
   },
   "homepage": "https://github.com/YMSpektor/dxf-doc#readme",
   "devDependencies": {
-    "@types/node": "^12.12.14",
     "nodemon": "^2.0.1",
     "ts-node": "^8.5.4",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.2",
+    "@types/node": "^12.12.14"
   },
-  "dependencies": {}
+  "dependencies": {
+  }
 }
