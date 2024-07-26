@@ -13,8 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Arc = void 0;
-var _1 = require("./entity");
+var _1 = require(".");
 var Arc = /** @class */ (function (_super) {
     __extends(Arc, _super);
     function Arc(doc, cx, cy, r, startAngle, endAngle, ownerHandle) {

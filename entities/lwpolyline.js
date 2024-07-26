@@ -13,8 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LwPolyline = void 0;
-var _1 = require("./entity");
+var _1 = require(".");
 var LwPolyline = /** @class */ (function (_super) {
     __extends(LwPolyline, _super);
     function LwPolyline(doc, points, isClosed, ownerHandle) {

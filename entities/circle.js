@@ -13,8 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Circle = void 0;
-var _1 = require("./entity");
+var _1 = require(".");
 var Circle = /** @class */ (function (_super) {
     __extends(Circle, _super);
     function Circle(doc, cx, cy, r, ownerHandle) {

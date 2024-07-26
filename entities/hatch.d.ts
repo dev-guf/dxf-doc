@@ -26,7 +26,7 @@ export declare class HatchPattern implements DxfObject {
     lines: HatchPatterLine[];
     static SOLID: string;
     constructor(name: string, lines: HatchPatterLine[]);
-    static readFileAsync(path: string): Promise<HatchPattern[]>;
+    static parse(lines: string[]): HatchPattern[];
     writeDxf(writer: DxfWriter): void;
 }
 export declare abstract class HatchBoundaryPath implements DxfObject {

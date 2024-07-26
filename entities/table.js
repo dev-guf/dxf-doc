@@ -13,7 +13,6 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TableRecord = exports.DimStyleTable = exports.Table = void 0;
 var Table = /** @class */ (function () {
     function Table(name, handle) {
         this.name = name;

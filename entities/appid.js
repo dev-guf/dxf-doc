@@ -13,7 +13,6 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppId = void 0;
 var table_1 = require("./table");
 var AppId = /** @class */ (function (_super) {
     __extends(AppId, _super);

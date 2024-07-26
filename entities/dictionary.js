@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Dictionary = void 0;
 var Dictionary = /** @class */ (function () {
     function Dictionary(handle, ownerHandle) {
         this.handle = handle;

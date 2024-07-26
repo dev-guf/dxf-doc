@@ -1,1 +1,0 @@
-const entities = require('./entities');

@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Entity = void 0;
 var layer_1 = require("./layer");
 var ltype_1 = require("./ltype");
 var Entity = /** @class */ (function () {

@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.HeaderVariable = void 0;
 var HeaderVariable = /** @class */ (function () {
     function HeaderVariable(name, groups) {
         this.name = name;
